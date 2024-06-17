@@ -4,19 +4,15 @@ import sys
 
 from fighter import Fighter
 
-
-#class Game:
-#	def __init__(self, fighter1, fighter2)
-#		self.fighter1 = fighter1
-#		self.fighter2 = fighter2
-		
-
-
-#INITIALIZE
-mixer.init()
-pygame.init()
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 600
+class Game:
+	def __init__(self, fighter1, fighter2):
+		self.fighter1 = fighter1
+		self.fighter2 = fighter2
+		#INITIALIZE
+		mixer.init()
+		pygame.init()
+# SCREEN_WIDTH = 1000
+# SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 pygame.display.set_caption("Brawler") 
 clock = pygame.time.Clock()
@@ -41,19 +37,7 @@ score_font = pygame.font.Font("assets/Fonts/turok.ttf", 80)
 
 #ICONS
 victory_icon = pygame.image.load("assets/Icons/victory.png").convert_alpha()
-#FRAMES PER FIGHTER ANIMATIONS
-WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
-WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
-#DEFINE FIGHTER VARIABLES
-WARRIOR_SIZE = 162 #pixels
-WARRIOR_SCALE = 4
-WARRIOR_OFFSET = [72, 56]
-WARRIOR_DATA = [WARRIOR_SIZE, WARRIOR_SCALE, WARRIOR_OFFSET]
-WIZARD_SIZE = 250
-WIZARD_SCALE = 3
-WIZARD_OFFSET = [112, 107]
-WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 
 #GAME VARIABLES
 intro_count = 3

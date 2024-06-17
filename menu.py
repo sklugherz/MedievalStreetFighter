@@ -1,2 +1,4 @@
 import pygame_menu
 
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 600
