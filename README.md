@@ -33,3 +33,12 @@ A simple medieval themed, arcade-style fighing game.
 - Character Selection
 - Map/Background Selection
 - Asset Credits/Credit Location
+
+### Refactor Processes: (An asterick* means currently being refactored for simpler responsibility set)
+
+- Fighter class is responsible for acting as the player controller.
+  - This includes character movements and attacks, character animation extraction from sprite sheets, and simple pygame obscurity for updates and drawing.
+- Game class is responsible for running the fighting portion of the game. *
+  - This includes the initial countdown, drawing the fight scene, and running the main game loop.
+- Menu class is responsible for running all menus. *
+  - This includes the main menu, character selection, and fight scene selection.
