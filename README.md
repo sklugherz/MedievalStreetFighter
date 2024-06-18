@@ -1,8 +1,8 @@
-# MedievalStreetFighter
+## MedievalStreetFighter
 
 A simple medieval themed, arcade-style fighing game.
 
-## Controls
+### Controls
 
 - Player 1
   - Left: A
@@ -18,7 +18,7 @@ A simple medieval themed, arcade-style fighing game.
   - Attack 1: NUMPAD 1
   - Attack 2: NUMPAD 2
 
-### Whats Implemented
+### Whats Implemented:
 
 - Hit Registration
 - Basic Game Loop
