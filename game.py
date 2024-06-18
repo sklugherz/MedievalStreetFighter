@@ -38,7 +38,6 @@ class Game:
 		#ICONS
 		victory_icon = pygame.image.load("assets/Icons/victory.png").convert_alpha()
 
-
 		#GAME VARIABLES
 		intro_count = 3
 		last_count_update = pygame.time.get_ticks()
@@ -55,7 +54,6 @@ class Game:
 		fighter_1 = Fighter(1, 200, 310, False, self.WARRIOR_DATA, warrior_sheet, self.WARRIOR_ANIMATION_STEPS, sword_fx)
 		fighter_2 = Fighter(2, 700, 310, True, self.WIZARD_DATA, wizard_sheet, self.WIZARD_ANIMATION_STEPS, magic_fx)
 
-
 	#FUNCTIONS
 	def draw_bg(self):
 		scaled_bg = pygame.transform.scale(self.bg_image, (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
@@ -71,9 +69,6 @@ class Game:
 	def draw_text(self, text, font, color, x, y):
 		img = font.render(text, True, color)
 		self.screen.blit(img, (x, y))
-
-
-
 
 	def run_game(self):
 		while True:
