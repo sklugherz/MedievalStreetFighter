@@ -6,28 +6,10 @@ from fighter import Fighter
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
-		#INITIALIZE
-		#FIGHTERS
-		# self.fighter_1 = Fighter(1, 200, 310, False, self.WARRIOR_DATA, self.warrior_sheet, self.WARRIOR_ANIMATION_STEPS, self.sword_fx)
-		# self.fighter_2 = Fighter(2, 700, 310, True, self.WIZARD_DATA, self.wizard_sheet, self.WIZARD_ANIMATION_STEPS, self.magic_fx)
 		self.fighter1 = fighter1
 		self.fighter2 = fighter2
 		self.screen = screen
 		self.clock = pygame.time.Clock()
-
-		# #AUDIO
-		# pygame.mixer.music.load("assets/Audio/music.mp3")
-		# pygame.mixer.music.set_volume(0.5)
-		# pygame.mixer.music.play(-1, 0.0, 5000)
-		# self.sword_fx = pygame.mixer.Sound("assets/Audio/sword.wav")
-		# self.sword_fx.set_volume(0.5)
-		# self.magic_fx = pygame.mixer.Sound("assets/Audio/magic.wav")
-		# self.magic_fx.set_volume(0.75)
-
-		# #IMAGES
-		# self.bg_image = pygame.image.load("assets/Background/background.jpg").convert_alpha()
-		# self.wizard_sheet = pygame.image.load("assets/EvilWizard/wizard.png").convert_alpha()
-		# self.warrior_sheet = pygame.image.load("assets/FantasyWarrior/warrior.png").convert_alpha()
 
 		#FONTS
 		self.count_font = pygame.font.Font("assets/Fonts/turok.ttf", 80)
