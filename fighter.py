@@ -25,6 +25,9 @@ class Fighter():
 		self.health = 100
 		self.alive = True
 
+	def reset_health(self):
+		self.health = 100
+		self.alive = True
 
 	def load_images(self, sprite_sheet, animations_steps):
 		#extract images from spritesheet
