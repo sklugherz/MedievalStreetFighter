@@ -28,13 +28,14 @@ bg_image = pygame.image.load("assets/Background/background.jpg").convert_alpha()
 
 # clock = pygame.time.Clock()
 
+fighter_1 = None
+fighter_2 = None
+
 def select_character():
     """
     Run character selection
     query "database"
     initialize fighters
-    defualt selection??
-    time limit?
     """
     pass
 # fighter_1 = Fighter(1, 200, 310, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
@@ -48,7 +49,7 @@ def draw_bg():
 
 def play():
     pygame.display.set_caption("Fight!") 
-    game = Game()
+    game = Game(fighter_1, fighter_2, screen)
     game.run_game()
 
 def options():
