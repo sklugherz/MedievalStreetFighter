@@ -2,7 +2,7 @@ import pygame
 
 
 class Fighter():
-	def __init__(self, player, x, y, flip, data, sprite_sheet, animations_steps, sound_fx):
+	def __init__(self, player, x, y, flip, data, sprite_sheet, animations_steps, sound_fx, volume):
 		self.player = player
 		self.size = data[0]
 		self.image_scale = data[1]
@@ -20,7 +20,8 @@ class Fighter():
 		self.attacking = False
 		self.attack_type = 0
 		self.attack_cd = 0
-		self.attack_sound = sound_fx
+		self.attack_sound = pygame.mixer.Sound(sound_fx)
+		self.attack_sound.set_volume(volume)
 		self.hit = False
 		self.health = 100
 		self.alive = True
