@@ -3,6 +3,7 @@ from pygame import mixer
 import sys
 from constants import RED,WHITE,YELLOW
 from fighter import Fighter
+import menu
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
@@ -23,6 +24,7 @@ class Game:
 		self.last_count_update = pygame.time.get_ticks()
 		self.score = [0, 0] #p1,p2
 		self.round_over = False
+		self.game_over = False
 		self.ROUND_OVER_CD = 2000
 
 
@@ -50,8 +52,8 @@ class Game:
 			self.draw_text("P2: " + str(self.score[1]), self.score_font, RED, 580, 60)
 			#update countdown
 			if self.intro_count <= 0:
-				self.fighter_1.move(self.screen.get_width(), self.screen.get_height(), self.fighter_2, round_over)
-				self.fighter_2.move(self.screen.get_width(), self.screen.get_height(), self.fighter_1, round_over)
+				self.fighter_1.move(self.screen.get_width(), self.screen.get_height(), self.fighter_2, self.round_over)
+				self.fighter_2.move(self.screen.get_width(), self.screen.get_height(), self.fighter_1, self.round_over)
 			else:
 				#displayer timer
 				self.draw_text(str(self.intro_count), self.count_font, RED, self.screen.get_width() / 2, self.screen.get_height() / 3)
@@ -70,10 +72,14 @@ class Game:
 			if self.round_over == False:
 				if self.fighter_1.alive == False:
 					self.score[1] += 1
+					if self.score[0] >= 3:
+						self.game_over = True
 					self.round_over = True
 					self.round_over_time = pygame.time.get_ticks()
 				elif self.fighter_2.alive == False:
 					self.score[0] += 1
+					if self.score[0] >= 3:
+						self.game_over = True
 					self.round_over = True
 					self.round_over_time = pygame.time.get_ticks()
 			else:
@@ -81,14 +87,14 @@ class Game:
 				self.screen.blit(self.victory_icon, (360, 150))
 				# reset game
 				if (pygame.time.get_ticks() - self.round_over_time) > self.ROUND_OVER_CD:
-					self.round_over = False
-					self.intro_count = 3
-					self.fighter_1.reset_health() 
-					self.fighter_2.reset_health()
-				# if self.score[0] == 3:
-				# 	screen draw P1 wins
-				# elif self.score[1] == 3:
-				#  screen draw p2 wins
+					if self.game_over == True:
+						# TODO
+						menu.main_menu() #potentially changes call method if menu becomes self contained class
+					else:
+						self.round_over = False
+						self.intro_count = 3
+						self.fighter_1.reset_health()
+						self.fighter_2.reset_health()
 
 			pygame.display.flip()
 			self.clock.tick(60)
