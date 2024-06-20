@@ -44,6 +44,7 @@ class Game:
 				if event.type == pygame.QUIT:
 					pygame.quit()
 					sys.exit()
+					#maybe give control back to main menu before total exit
 			#drawBG
 			self.draw_health_bar(self.fighter_1.health, 20, 20)
 			self.draw_health_bar(self.fighter_2.health, 580, 20)

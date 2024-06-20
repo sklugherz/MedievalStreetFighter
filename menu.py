@@ -16,15 +16,15 @@ pygame.display.set_caption("Menu")
 pygame.mixer.music.load("assets/Audio/music.mp3")
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1, 0.0, 5000)
-sword_fx = pygame.mixer.Sound("assets/Audio/sword.wav")
-sword_fx.set_volume(0.5)
-magic_fx = pygame.mixer.Sound("assets/Audio/magic.wav")
-magic_fx.set_volume(0.75)
+# sword_fx = pygame.mixer.Sound("assets/Audio/sword.wav")
+# sword_fx.set_volume(0.5)
+# magic_fx = pygame.mixer.Sound("assets/Audio/magic.wav")
+# magic_fx.set_volume(0.75)
 
 #IMAGES
 bg_image = pygame.image.load("assets/Background/background.jpg").convert_alpha()
-wizard_sheet = pygame.image.load("assets/EvilWizard/wizard.png").convert_alpha()
-warrior_sheet = pygame.image.load("assets/FantasyWarrior/warrior.png").convert_alpha()
+# wizard_sheet = pygame.image.load("assets/EvilWizard/wizard.png").convert_alpha()
+# warrior_sheet = pygame.image.load("assets/FantasyWarrior/warrior.png").convert_alpha()
 
 # clock = pygame.time.Clock()
 
@@ -42,7 +42,7 @@ def select_character():
 		
 
 #FUNCTIONS
-def draw_bg(self):
+def draw_bg():
     scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(scaled_bg, (0, 0))
 
