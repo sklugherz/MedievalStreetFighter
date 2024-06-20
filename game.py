@@ -1,8 +1,6 @@
 import pygame
-from pygame import mixer
 import sys
 from constants import RED,WHITE,YELLOW
-from fighter import Fighter
 from menu import draw_bg
 from menu import main_menu
 
