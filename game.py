@@ -4,6 +4,7 @@ import sys
 from constants import RED,WHITE,YELLOW
 from fighter import Fighter
 import menu
+from menu import draw_bg
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
@@ -18,6 +19,9 @@ class Game:
 
 		#ICONS
 		self.victory_icon = pygame.image.load("assets/Icons/victory.png").convert_alpha()
+		
+		#IMAGES
+		self.game_bg = pygame.image.load("assets/Background/background.jpg").convert_alpha()
 
 		#GAME VARIABLES
 		self.intro_count = 3
@@ -46,6 +50,7 @@ class Game:
 					sys.exit()
 					#maybe give control back to main menu before total exit
 			#drawBG
+			draw_bg(self.game_bg)
 			self.draw_health_bar(self.fighter_1.health, 20, 20)
 			self.draw_health_bar(self.fighter_2.health, 580, 20)
 			#draw score

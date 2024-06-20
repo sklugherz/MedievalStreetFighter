@@ -10,7 +10,7 @@ pygame.init()
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
-pygame.display.set_caption("Menu") 
+ 
 
 #AUDIO
 pygame.mixer.music.load("assets/Audio/music.mp3")
@@ -22,9 +22,10 @@ pygame.mixer.music.play(-1, 0.0, 5000)
 # magic_fx.set_volume(0.75)
 
 #IMAGES
-bg_image = pygame.image.load("assets/Background/background.jpg").convert_alpha()
-# wizard_sheet = pygame.image.load("assets/EvilWizard/wizard.png").convert_alpha()
-# warrior_sheet = pygame.image.load("assets/FantasyWarrior/warrior.png").convert_alpha()
+menu_bg = pygame.image.load("assets/Background/menu.jpg").convert_alpha()
+play_rect = pygame.image.load("assets/Menu/PlayRect.png")
+options_rect = pygame.image.load("assets/Menu/OptionsRect.png")
+quit_rect = pygame.image.load("assets/Menu/QuitRect.png")
 
 # clock = pygame.time.Clock()
 
@@ -44,10 +45,10 @@ def select_character():
 
 #FUNCTIONS
 def get_font(size):
-    return pygame.font.Font("assets/Fonts/turok.ttf", size)
+    return pygame.font.Font("assets/Fonts/8bit.ttf", size)
 
-def draw_bg():
-    scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+def draw_bg(bg):
+    scaled_bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(scaled_bg, (0, 0))
 
 def play():
@@ -59,6 +60,16 @@ def options():
     pass
 
 def main_menu():
-    pass
+    pygame.display.set_caption("Menu")
+    while True:
+        draw_bg(menu_bg)
+        mouse_pos = pygame.mouse.get_pos()
+        PLAY_BUTTON = Button(play_rect, pos=(640, 250), 
+                            text_input="PLAY", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+        OPTIONS_BUTTON = Button(options_rect, pos=(640, 400), 
+                            text_input="OPTIONS", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+        QUIT_BUTTON = Button(quit_rect, pos=(640, 550), 
+                            text_input="QUIT", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+
 
 main_menu()
