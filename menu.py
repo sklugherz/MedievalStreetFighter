@@ -3,7 +3,7 @@ from pygame import mixer
 import sys
 from game import Game
 from fighter import Fighter
-
+from button import Button
 
 mixer.init()
 pygame.init()
@@ -43,6 +43,9 @@ def select_character():
 		
 
 #FUNCTIONS
+def get_font(size):
+    return pygame.font.Font("assets/Fonts/turok.ttf", size)
+
 def draw_bg():
     scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(scaled_bg, (0, 0))
