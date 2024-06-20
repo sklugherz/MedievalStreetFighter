@@ -1,4 +1,4 @@
-class Button():
+class Button:
 	"""
         Author: baraltech
 		Source: https://github.com/baraltech/Menu-System-PyGame

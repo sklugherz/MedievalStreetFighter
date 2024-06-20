@@ -5,6 +5,7 @@ from game import Game
 from fighter import Fighter
 from button import Button
 from constants import MENU_ORANGE, MENU_WHITE, WHITE
+import characters
 
 mixer.init()
 pygame.init()
@@ -28,18 +29,38 @@ play_rect = pygame.image.load("assets/Menu/PlayRect.png")
 options_rect = pygame.image.load("assets/Menu/OptionsRect.png")
 quit_rect = pygame.image.load("assets/Menu/QuitRect.png")
 
-# clock = pygame.time.Clock()
+#CHARACTER SELECTION CROPS
+elvenWarrior_crop = pygame.image.load("assets/FantasyWarrior/crop.png")
+darkWizard_crop = pygame.image.load("assets/EvilWizard/crop.png")
 
-fighter_1 = None
-fighter_2 = None
+# clock = pygame.time.Clock()
 
 def select_character():
     """
     Run character selection
+
     query "database"
     initialize fighters
     """
-    pass
+    p1_selected = False
+    p2_selected = False
+    while True:
+
+        draw_bg(menu_bg)
+        mouse_pos = pygame.mouse.get_pos()
+
+        SELECT_TEXT = get_font(100).render("SELECT YOUR FIGHTERS", True, MENU_ORANGE)
+        SELECT_RECT = SELECT_TEXT.get_rect(center=(SCREEN_WIDTH / 2, 100))
+
+        #FIGHTER CARDS BUT AS BUTTONS
+        
+
+
+        screen.blit(SELECT_TEXT, SELECT_RECT)
+
+        f1 = Fighter(1, 200, 310, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
+        f2 = Fighter(2, 700, 310, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+        return f1, f2
 # fighter_1 = Fighter(1, 200, 310, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
 # fighter_2 = Fighter(2, 700, 310, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
 		
@@ -53,6 +74,7 @@ def draw_bg(bg):
     screen.blit(scaled_bg, (0, 0))
 
 def play():
+    fighter_1, fighter_2 = select_character()
     pygame.display.set_caption("Fight!") 
     game = Game(fighter_1, fighter_2, screen)
     game.run_game()

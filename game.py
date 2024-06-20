@@ -78,7 +78,7 @@ class Game:
 			if self.round_over == False:
 				if self.fighter_1.alive == False:
 					self.score[1] += 1
-					if self.score[0] >= 3:
+					if self.score[1] >= 3:
 						self.game_over = True
 					self.round_over = True
 					self.round_over_time = pygame.time.get_ticks()
