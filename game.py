@@ -3,8 +3,8 @@ from pygame import mixer
 import sys
 from constants import RED,WHITE,YELLOW
 from fighter import Fighter
-import menu
 from menu import draw_bg
+from menu import main_menu
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
@@ -95,7 +95,7 @@ class Game:
 				if (pygame.time.get_ticks() - self.round_over_time) > self.ROUND_OVER_CD:
 					if self.game_over == True:
 						# TODO
-						menu.main_menu() #potentially changes call method if menu becomes self contained class
+						main_menu() #potentially changes call method if menu becomes self contained class
 					else:
 						self.round_over = False
 						self.intro_count = 3
