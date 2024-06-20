@@ -7,7 +7,7 @@ characters = [
         "offset": [72, 56],
         "soundfx": "assets/Audio/sword.wav",
         "volume": 0.5,
-        "sheet": "assets/Audio/warrior.png"
+        "sheet": "assets/FantasyWarrior/warrior.png"
         
     },
     {
@@ -18,6 +18,6 @@ characters = [
         "offset": [112, 107],
         "soundfx": "assets/Audio/magic.wav",
         "volume": 0.75,
-        "sheet": "assets/Audio/wizard.png"
+        "sheet": "assets/EvilWizard/wizard.png"
     }
 ]

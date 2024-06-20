@@ -18,13 +18,9 @@ screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 pygame.mixer.music.load("assets/Audio/music.mp3")
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1, 0.0, 5000)
-# sword_fx = pygame.mixer.Sound("assets/Audio/sword.wav")
-# sword_fx.set_volume(0.5)
-# magic_fx = pygame.mixer.Sound("assets/Audio/magic.wav")
-# magic_fx.set_volume(0.75)
 
 #IMAGES
-menu_bg = pygame.image.load("assets/Background/menu.jpg").convert_alpha()
+menu_bg = pygame.image.load("assets/Background/menu.png").convert_alpha()
 play_rect = pygame.image.load("assets/Menu/PlayRect.png")
 options_rect = pygame.image.load("assets/Menu/OptionsRect.png")
 quit_rect = pygame.image.load("assets/Menu/QuitRect.png")
@@ -36,12 +32,6 @@ darkWizard_crop = pygame.image.load("assets/EvilWizard/crop.png")
 # clock = pygame.time.Clock()
 
 def select_character():
-    """
-    Run character selection
-
-    query "database"
-    initialize fighters
-    """
     p1_selected = False
 
     while True:
@@ -51,7 +41,7 @@ def select_character():
         SELECT_TEXT = get_font(100).render("SELECT YOUR FIGHTERS", True, MENU_ORANGE)
         SELECT_RECT = SELECT_TEXT.get_rect(center=(SCREEN_WIDTH / 2, 100))
 
-        #FIGHTER CARD
+        #FIGHTER CARD 
         elvenWarrior_button = Button(elvenWarrior_crop, (SCREEN_WIDTH / 2 - 20, 300), "", get_font(32), WHITE, WHITE)
         darkWizard_button = Button(darkWizard_crop, (SCREEN_WIDTH / 2 + 20, 300), "", get_font(32), WHITE, WHITE)
 
@@ -69,11 +59,11 @@ def select_character():
                 if elvenWarrior_button.checkForInput(mouse_pos):
                     #query database
                     x = characters[0]
-                    ew_sheet = x.sheet
-                    ew_animations_steps = x.animationSteps
-                    ew_soundfx = x.soundfx
-                    ew_volume = x.volume
-                    ew_data = [x.size, x.scale, x.offset]
+                    ew_sheet = x["sheet"]
+                    ew_animations_steps = x["animationSteps"]
+                    ew_soundfx = x["soundfx"]
+                    ew_volume = x["volume"]
+                    ew_data = [x["size"], x["scale"], x["offset"]]
                     if p1_selected == False:
                         f1 = Fighter(1, 200, 310, False, ew_data, ew_sheet, ew_animations_steps, ew_soundfx, ew_volume)
                         p1_selected = True
@@ -83,11 +73,11 @@ def select_character():
                         return f1,f2
                 if darkWizard_button.checkForInput(mouse_pos):
                     x = characters[1]
-                    dw_sheet = x.sheet
-                    dw_animations_steps = x.animationSteps
-                    dw_soundfx = x.soundfx
-                    dw_volume = x.volume
-                    dw_data = [x.size, x.scale, x.offset]
+                    dw_sheet = x["sheet"]
+                    dw_animations_steps = x["animationSteps"]
+                    dw_soundfx = x["soundfx"]
+                    dw_volume = x["volume"]
+                    dw_data = [x["size"], x["scale"], x["offset"]]
                     if p1_selected == False:
                         f1 = Fighter(2, 700, 310, True, dw_data, dw_sheet, dw_animations_steps, dw_soundfx, dw_volume)
                         p1_selected = True

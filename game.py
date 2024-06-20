@@ -1,13 +1,12 @@
 import pygame
 import sys
 from constants import RED,WHITE,YELLOW
-from menu import draw_bg
-from menu import main_menu
+
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
-		self.fighter1 = fighter1
-		self.fighter2 = fighter2
+		self.fighter_1 = fighter1
+		self.fighter_2 = fighter2
 		self.screen = screen
 		self.clock = pygame.time.Clock()
 
@@ -41,6 +40,8 @@ class Game:
 		self.screen.blit(img, (x, y))
 
 	def run_game(self):
+		from menu import draw_bg
+		from menu import main_menu
 		while True:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:

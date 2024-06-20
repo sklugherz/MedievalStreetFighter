@@ -8,7 +8,7 @@ class Fighter():
 		self.image_scale = data[1]
 		self.offset = data[2]
 		self.flip = flip
-		self.animation_list = self.load_images(sprite_sheet, animations_steps)
+		self.animation_list = self.load_images(pygame.image.load(sprite_sheet).convert_alpha(), animations_steps)
 		self.action = 0 #0:idle #1:run #2:jump #3:att1 #4:att2 #5:hit #6:death
 		self.frame_index = 0
 		self.image = self.animation_list[self.action][self.frame_index]
