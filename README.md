@@ -34,11 +34,11 @@ A simple medieval themed, arcade-style fighing game.
 - Map/Background Selection
 - Asset Credits/Credit Location
 
-### Refactor Processes: (An asterick* means currently being refactored for simpler responsibility set)
+### Current Workspace:
 
-- Fighter class is responsible for acting as the player controller.
-  - This includes character movements and attacks, character animation extraction from sprite sheets, and simple pygame obscurity for updates and drawing.
-- Game class is responsible for running the fighting portion of the game. *
-  - This includes the initial countdown, drawing the fight scene, and running the main game loop.
-- Menu class is responsible for running all menus. *
-  - This includes the main menu, character selection, and fight scene selection.
+- fix players not returning to start postions on death
+- fix players not facing eachother during countdown
+- fix character select screen layout
+- fix selecting ElvenWarrior as P1 and DarkWizard as P2 from returning to main menu
+- fix location of pygame.mixer
+- Add more characters to the database
