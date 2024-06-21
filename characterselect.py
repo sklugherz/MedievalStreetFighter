@@ -5,8 +5,9 @@ from characters import characters
 from fighter import Fighter
 from helper import draw_bg, get_font
 from constants import MENU_ORANGE, WHITE
+from game import Game
 
-class characterselect:
+class CharacterSelect:
     def __init__(self, screen, bg):
         self.screem = screen
         self.bg = bg
@@ -55,7 +56,8 @@ class characterselect:
                             elvenWarrior_button.text_input = "P1"
                         else:
                             f2 = Fighter(2, 700, 310, True, ew_data, ew_sheet, ew_animations_steps, ew_soundfx, ew_volume)     
-                            return f1,f2
+                            game = Game(f1, f2, self.screen)
+                            game.run_game()
                     if darkWizard_button.checkForInput(mouse_pos):
                         x = characters[1]
                         dw_sheet = x["sheet"]
@@ -69,6 +71,7 @@ class characterselect:
                             darkWizard_button.text_input = "P1"
                         else:
                             f2 = Fighter(2, 700, 310, True, dw_data, dw_sheet, dw_animations_steps, dw_soundfx, dw_volume)
-                            return f1,f2
+                            game = Game(f1, f2, self.screen)
+                            game.run_game()
 
             pygame.display.update()	

@@ -4,7 +4,7 @@ import sys
 from button import Button
 from constants import MENU_ORANGE, MENU_WHITE, WHITE
 from helper import draw_bg, get_font
-from characterselect import run_select
+from characterselect import CharacterSelect
 
 
 pygame.init()
@@ -22,7 +22,8 @@ quit_rect = pygame.image.load("assets/Menu/QuitRect.png")
 
 #FUNCTIONS
 def select_characters():
-    run_select(screen, menu_bg)
+    cs = CharacterSelect(screen, menu_bg)
+    cs.run_select()
     
 
 def options():
