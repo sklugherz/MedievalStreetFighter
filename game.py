@@ -100,6 +100,12 @@ class Game:
 						self.intro_count = 3
 						self.fighter_1.reset_health()
 						self.fighter_2.reset_health()
+						"""
+						TODO
+						SET X AND Y FOR EACHFIGHTER TO ORIGINAL POS
+						GET DATA FROM NEW SELECTCHARACTER CLASS
+						
+						"""
 
 			pygame.display.flip()
 			self.clock.tick(60)
