@@ -37,7 +37,7 @@ A simple medieval themed, arcade-style fighing game.
 ### Current Workspace:
 
 - fix players not returning to start postions on death
-  - To do this, and also fix earlier circular import, need to refactor select character into its own class from menu.
+  - To do this need to refactor select character into its own class from menu.
   - ~Need to derive helper file for draw_bg and any other multi-file functions~
 - ~fix players not facing eachother during countdown~
   - ~Run an initial check prior to countdown so characters a rendered right direction~
