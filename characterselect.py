@@ -9,7 +9,7 @@ from game import Game
 
 class CharacterSelect:
     def __init__(self, screen, bg):
-        self.screem = screen
+        self.screen = screen
         self.bg = bg
 
         #LOAD CHARACTER CROPS 
