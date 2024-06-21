@@ -44,7 +44,7 @@ A simple medieval themed, arcade-style fighing game.
 - fix character select screen layout
   - guess and check different values, resize character crops to be bigger
 - fix selecting ElvenWarrior as P2 from returning to main menu
-  - probably something really simple like a 1 needing to be a 2
+  - almost as if something crucial for P2 doesn't get set when EW is selected... Works with DW
   - Only happenes for the first game
   - Works after returning to menu and playing through again
 - ~fix location of pygame.mixer~
