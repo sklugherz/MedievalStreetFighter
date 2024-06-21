@@ -45,7 +45,7 @@ A simple medieval themed, arcade-style fighing game.
   - guess and check different values, resize character crops to be bigger
 - ~fix selecting ElvenWarrior as P1 and DarkWizard as P2 from returning to main menu~
   - ~probably something really simple like a 1 needing to be a 2~
-- fix location of pygame.mixer
-  - got moved over in previous refactor, need to move back to game from menu
+- ~fix location of pygame.mixer~
+  - ~got moved over in previous refactor, need to move back to game from menu~
 - Add more characters to the database
   - adds data to list of dictionairies, add asset folders, maybe encompass fighter assets into their own folder, add to character select screen, adjust character select game loop to acount for these new characters.
