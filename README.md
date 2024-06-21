@@ -24,13 +24,13 @@ A simple medieval themed, arcade-style fighing game.
 - Basic Game Loop
 - In-Game UI
 - Character Movement & Attacks
+- Starting Menu
+- Character Selection
 
 ### What I'm Planning on Implementing:
 
-- Starting Menu
 - SinglePlayer
 - Basic AI for SinglePlayer
-- Character Selection
 - Map/Background Selection
 - Asset Credits/Credit Location
 
