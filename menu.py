@@ -6,6 +6,8 @@ from fighter import Fighter
 from button import Button
 from constants import MENU_ORANGE, MENU_WHITE, WHITE
 from characters import characters
+from helper import draw_bg
+
 
 mixer.init()
 pygame.init()
@@ -35,7 +37,7 @@ def select_character():
     p1_selected = False
 
     while True:
-        draw_bg(menu_bg)
+        draw_bg(menu_bg, screen)
         mouse_pos = pygame.mouse.get_pos()
 
         SELECT_TEXT = get_font(100).render("SELECT YOUR FIGHTERS", True, MENU_ORANGE)
@@ -92,9 +94,7 @@ def select_character():
 def get_font(size):
     return pygame.font.Font("assets/Fonts/8bit.ttf", size)
 
-def draw_bg(bg):
-    scaled_bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
-    screen.blit(scaled_bg, (0, 0))
+
 
 def play():
     fighter_1, fighter_2 = select_character()
@@ -108,7 +108,7 @@ def options():
 def main_menu():
     pygame.display.set_caption("Menu")
     while True:
-        draw_bg(menu_bg)
+        draw_bg(menu_bg, screen)
         mouse_pos = pygame.mouse.get_pos()
 
         MENU_TEXT = get_font(100).render("MAIN MENU", True, MENU_ORANGE)

@@ -1,7 +1,7 @@
 import pygame
 import sys
 from constants import RED,WHITE,YELLOW
-
+from helper import draw_bg
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
@@ -40,7 +40,6 @@ class Game:
 		self.screen.blit(img, (x, y))
 
 	def run_game(self):
-		from menu import draw_bg
 		from menu import main_menu
 		while True:
 			for event in pygame.event.get():
@@ -49,7 +48,7 @@ class Game:
 					sys.exit()
 					#maybe give control back to main menu before total exit
 			#drawBG
-			draw_bg(self.game_bg)
+			draw_bg(self.game_bg, self.screen)
 			self.draw_health_bar(self.fighter_1.health, 20, 20)
 			self.draw_health_bar(self.fighter_2.health, 580, 20)
 			#draw score
