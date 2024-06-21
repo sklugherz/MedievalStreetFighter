@@ -71,7 +71,7 @@ def select_character():
                         p1_selected = True
                         elvenWarrior_button.text_input = "P1"
                     else:
-                        f2 = Fighter(2, 700, 310, False, ew_data, ew_sheet, ew_animations_steps, ew_soundfx, ew_volume)     
+                        f2 = Fighter(2, 700, 310, True, ew_data, ew_sheet, ew_animations_steps, ew_soundfx, ew_volume)     
                         return f1,f2
                 if darkWizard_button.checkForInput(mouse_pos):
                     x = characters[1]
@@ -81,7 +81,7 @@ def select_character():
                     dw_volume = x["volume"]
                     dw_data = [x["size"], x["scale"], x["offset"]]
                     if p1_selected == False:
-                        f1 = Fighter(1, 200, 310, True, dw_data, dw_sheet, dw_animations_steps, dw_soundfx, dw_volume)
+                        f1 = Fighter(1, 200, 310, False, dw_data, dw_sheet, dw_animations_steps, dw_soundfx, dw_volume)
                         p1_selected = True
                         darkWizard_button.text_input = "P1"
                     else:
