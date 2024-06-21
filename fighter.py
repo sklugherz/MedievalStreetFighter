@@ -2,13 +2,13 @@ import pygame
 
 
 class Fighter():
-	def __init__(self, player, x, y, flip, data, sprite_sheet, animations_steps, sound_fx):
+	def __init__(self, player, x, y, flip, data, sprite_sheet, animations_steps, sound_fx, volume):
 		self.player = player
 		self.size = data[0]
 		self.image_scale = data[1]
 		self.offset = data[2]
 		self.flip = flip
-		self.animation_list = self.load_images(sprite_sheet, animations_steps)
+		self.animation_list = self.load_images(pygame.image.load(sprite_sheet).convert_alpha(), animations_steps)
 		self.action = 0 #0:idle #1:run #2:jump #3:att1 #4:att2 #5:hit #6:death
 		self.frame_index = 0
 		self.image = self.animation_list[self.action][self.frame_index]
@@ -20,10 +20,16 @@ class Fighter():
 		self.attacking = False
 		self.attack_type = 0
 		self.attack_cd = 0
-		self.attack_sound = sound_fx
+		self.attack_sound = pygame.mixer.Sound(sound_fx)
+		self.attack_sound.set_volume(volume)
 		self.hit = False
 		self.health = 100
 		self.alive = True
+
+	def reset_health(self):
+		self.health = 100
+		self.alive = True
+		#need to mvoe back to start positions
 
 
 	def load_images(self, sprite_sheet, animations_steps):
