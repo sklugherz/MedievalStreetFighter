@@ -1,5 +1,5 @@
 import pygame
-from pygame import mixer
+
 import sys
 from game import Game
 from fighter import Fighter
@@ -9,17 +9,12 @@ from characters import characters
 from helper import draw_bg
 
 
-mixer.init()
+
 pygame.init()
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
  
-
-#AUDIO
-pygame.mixer.music.load("assets/Audio/music.mp3")
-pygame.mixer.music.set_volume(0.5)
-pygame.mixer.music.play(-1, 0.0, 5000)
 
 #IMAGES
 menu_bg = pygame.image.load("assets/Background/menu.png").convert_alpha()
