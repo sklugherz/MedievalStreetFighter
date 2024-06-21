@@ -3,7 +3,7 @@ import sys
 from constants import RED,WHITE,YELLOW
 from helper import draw_bg
 from pygame import mixer
-from menu import main_menu
+
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
@@ -47,7 +47,7 @@ class Game:
 		self.screen.blit(img, (x, y))
 
 	def run_game(self):
-		
+		from menu import main_menu
 		pygame.mixer.music.play(-1, 0.0, 5000)
 		while True:
 			for event in pygame.event.get():
