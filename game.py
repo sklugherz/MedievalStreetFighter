@@ -2,6 +2,7 @@ import pygame
 import sys
 from constants import RED,WHITE,YELLOW
 from helper import draw_bg
+from pygame import mixer
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
@@ -28,6 +29,11 @@ class Game:
 		self.game_over = False
 		self.ROUND_OVER_CD = 2000
 
+		#AUDIO
+		mixer.init()
+		pygame.mixer.music.load("assets/Audio/music.mp3")
+		pygame.mixer.music.set_volume(0.5)
+		
 
 	def draw_health_bar(self, health, x, y):
 		ratio = health / 100
@@ -41,6 +47,7 @@ class Game:
 
 	def run_game(self):
 		from menu import main_menu
+		pygame.mixer.music.play(-1, 0.0, 5000)
 		while True:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
