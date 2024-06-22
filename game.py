@@ -3,7 +3,7 @@ import sys
 from constants import RED,WHITE,YELLOW
 from helper import draw_bg
 from pygame import mixer
-
+import menu
 
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
@@ -47,7 +47,7 @@ class Game:
 		self.screen.blit(img, (x, y))
 
 	def run_game(self):
-		from menu import main_menu
+		
 		pygame.mixer.music.play(-1, 0.0, 5000)
 		while True:
 			for event in pygame.event.get():
@@ -101,7 +101,7 @@ class Game:
 				if (pygame.time.get_ticks() - self.round_over_time) > self.ROUND_OVER_CD:
 					if self.game_over == True:
 						# TODO
-						main_menu() #potentially changes call method if menu becomes self contained class
+						menu.main_menu() #potentially changes call method if menu becomes self contained class
 					else:
 						self.round_over = False
 						self.intro_count = 3

@@ -5,7 +5,7 @@ from characters import characters
 from fighter import Fighter
 from helper import draw_bg, get_font
 from constants import MENU_ORANGE, WHITE
-from game import Game
+import game
 
 class CharacterSelect:
     def __init__(self, screen, bg):
@@ -13,8 +13,8 @@ class CharacterSelect:
         self.bg = bg
 
         #LOAD CHARACTER CROPS 
-        self.elvenWarrior_crop = pygame.image.load("assets/FantasyWarrior/crop.png")
-        self.darkWizard_crop = pygame.image.load("assets/EvilWizard/crop.png")
+        self.elvenWarrior_crop = pygame.image.load("assets/FantasyWarrior/crop.png").convert_alpha()
+        self.darkWizard_crop = pygame.image.load("assets/EvilWizard/crop.png").convert_alpha()
 
 
     def run_select(self):
@@ -24,7 +24,7 @@ class CharacterSelect:
             draw_bg(self.bg, self.screen)
             mouse_pos = pygame.mouse.get_pos()
 
-            SELECT_TEXT = get_font(100).render("SELECT YOUR \n FIGHTERS", True, MENU_ORANGE)
+            SELECT_TEXT = get_font(50).render("SELECT YOUR FIGHTERS", True, MENU_ORANGE)
             SELECT_RECT = SELECT_TEXT.get_rect(center=(self.screen.get_width() / 2, 100))
 
             #FIGHTER CARD 
@@ -41,6 +41,7 @@ class CharacterSelect:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if elvenWarrior_button.checkForInput(mouse_pos):
                         #query database
@@ -56,8 +57,9 @@ class CharacterSelect:
                             elvenWarrior_button.text_input = "P1"
                         else:
                             f2 = Fighter(2, 700, 310, True, ew_data, ew_sheet, ew_animations_steps, ew_soundfx, ew_volume)     
-                            game = Game(f1, f2, self.screen)
-                            game.run_game()
+                            gm = game.Game(f1, f2, self.screen)
+                            gm.run_game()
+
                     if darkWizard_button.checkForInput(mouse_pos):
                         x = characters[1]
                         dw_sheet = x["sheet"]
@@ -71,7 +73,7 @@ class CharacterSelect:
                             darkWizard_button.text_input = "P1"
                         else:
                             f2 = Fighter(2, 700, 310, True, dw_data, dw_sheet, dw_animations_steps, dw_soundfx, dw_volume)
-                            game = Game(f1, f2, self.screen)
-                            game.run_game()
+                            gm = game.Game(f1, f2, self.screen)
+                            gm.run_game()
 
             pygame.display.update()	

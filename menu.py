@@ -4,7 +4,7 @@ import sys
 from button import Button
 from constants import MENU_ORANGE, MENU_WHITE, WHITE
 from helper import draw_bg, get_font
-from characterselect import CharacterSelect
+import characterselect
 
 
 pygame.init()
@@ -15,14 +15,14 @@ screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 
 #IMAGES
 menu_bg = pygame.image.load("assets/Background/menu.png").convert_alpha()
-play_rect = pygame.image.load("assets/Menu/PlayRect.png")
-options_rect = pygame.image.load("assets/Menu/OptionsRect.png")
-quit_rect = pygame.image.load("assets/Menu/QuitRect.png")
+play_rect = pygame.image.load("assets/Menu/PlayRect.png").convert_alpha()
+options_rect = pygame.image.load("assets/Menu/OptionsRect.png").convert_alpha()
+quit_rect = pygame.image.load("assets/Menu/QuitRect.png").convert_alpha()
 
 
 #FUNCTIONS
 def select_characters():
-    cs = CharacterSelect(screen, menu_bg)
+    cs = characterselect.CharacterSelect(screen, menu_bg)
     cs.run_select()
     
 
