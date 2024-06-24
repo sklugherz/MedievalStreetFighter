@@ -4,7 +4,6 @@ from constants import RED,WHITE,YELLOW
 from helper import draw_bg
 from pygame import mixer
 import menu
-
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
 		self.fighter_1 = fighter1
@@ -101,7 +100,8 @@ class Game:
 				if (pygame.time.get_ticks() - self.round_over_time) > self.ROUND_OVER_CD:
 					if self.game_over == True:
 						# TODO
-						menu.main_menu() #potentially changes call method if menu becomes self contained class
+						mn = menu.Menu()
+						mn.main_menu() #potentially changes call method if menu becomes self contained class
 					else:
 						self.round_over = False
 						self.intro_count = 3
