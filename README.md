@@ -36,16 +36,17 @@ A simple medieval themed, arcade-style fighing game.
 
 ### Current Workspace:
 
-- fix players not returning to start postions on death
-  - To do this need to refactor select character into its own class from menu.
-  - ~Need to derive helper file for draw_bg and any other multi-file functions~
-- ~fix players not facing eachother during countdown~
-  - ~Run an initial check prior to countdown so characters a rendered right direction~
+##### High Prio
+
+- Refactor fighter creation responsiblity from characterselect to game
+  - This will accomplish returning fighters to their start positions, reduce the bloat of multifaceted character creation in characterselect, allow for cleaner code within the finite state machine main driver.
+ 
+- Refactor circular game loop calls to change events.
+  - This should finally remove the circular dependency issues.
+
+##### Low Prio
+
 - fix character select screen layout
   - guess and check different values, resize character crops to be bigger
-- fix selecting ElvenWarrior as P2 from returning to main menu
-  - cause: import inside of run_game that was supposed to avoid circular import
-- ~fix location of pygame.mixer~
-  - ~got moved over in previous refactor, need to move back to game from menu~
 - Add more characters to the database
   - adds data to list of dictionairies, add asset folders, maybe encompass fighter assets into their own folder, add to character select screen, adjust character select game loop to acount for these new characters.
