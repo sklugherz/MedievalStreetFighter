@@ -41,7 +41,7 @@ class CharacterSelect:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-
+                # RETURN FIGHTER NAMES ONLY SO CREATION CAN BE DONE IN GAME INSTEAD
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if elvenWarrior_button.checkForInput(mouse_pos):
                         #query database

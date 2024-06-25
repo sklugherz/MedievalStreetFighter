@@ -6,7 +6,7 @@ from pygame import mixer
 import menu
 class Game:
 	def __init__(self, fighter1, fighter2, screen):
-		self.fighter_1 = fighter1
+		self.fighter_1 = fighter1 # RESEARCH INPLACE DICTIONAIRY/LIST TRAVERSAL
 		self.fighter_2 = fighter2
 		self.screen = screen
 		self.clock = pygame.time.Clock()
@@ -34,6 +34,8 @@ class Game:
 		pygame.mixer.music.load("assets/Audio/music.mp3")
 		pygame.mixer.music.set_volume(0.5)
 		
+	
+
 
 	def draw_health_bar(self, health, x, y):
 		ratio = health / 100
