@@ -11,7 +11,10 @@ class Game:
 	def __init__(self, screen, fighter1, fighter2, fsm):
 		self.screen = screen
 		self.fsm = fsm
-		self.fighter_1, self.fighter_2 = self.load_fighter_data(fighter1, fighter2)
+		self.f1_name = fighter1
+		self.f2_name = fighter2
+		self.fighter_1, self.fighter_2
+		self.load_fighter_data(fighter1, fighter2)
 		
 		self.clock = pygame.time.Clock()
 
@@ -44,9 +47,9 @@ class Game:
 		for x in characters:
 			if x.name == f1_name:
 				#player, x, y, flip, data, sprite_sheet, animations_steps, sound_fx, volume)
-				self.fighter_1 = Fighter(1, 200, 310, False, x.data, x.sheet. x.animation_steps, x.soundfx, x.volume)
+				self.fighter_1 = Fighter(1, 200, 310, False, x.data, x.sheet, x.animation_steps, x.soundfx, x.volume)
 			if x.name == f2_name:
-				self.fighter_2 = Fighter(2, 700, 310, True, x.data, x.sheet. x.animation_steps, x.soundfx, x.volume)
+				self.fighter_2 = Fighter(2, 700, 310, True, x.data, x.sheet, x.animation_steps, x.soundfx, x.volume)
 
 	def draw_health_bar(self, health, x, y):
 		ratio = health / 100
@@ -60,7 +63,7 @@ class Game:
 
 	def run_game(self):
 		pygame.display.set_caption("FIGHT!")
-		self.load_fighter_data()
+		self.load_fighter_data(self.f1_name, self.f2_name)
 		pygame.mixer.music.play(-1, 0.0, 5000)
 		running = True
 		while running:
@@ -117,7 +120,7 @@ class Game:
 						# TODO
 						self.fsm.transition(Event.END_GAME) #potentially changes call method if menu becomes self contained class
 					else:
-						self.load_fighter_data()
+						self.load_fighter_data(self.f1_name, self.f2_name)
 						self.round_over = False
 						self.intro_count = 3
 
