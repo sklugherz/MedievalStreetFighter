@@ -46,13 +46,13 @@ def main():
     while running:
         current_state = fsm.get_state()
         if current_state == State.MENU:
-            mn = Menu(screen, menu_bg)
+            mn = Menu(screen, menu_bg, fsm)
             mn.main_menu()
         elif current_state == State.CHARACTER_SELECT:
-            cs = CharacterSelect(screen, menu_bg)
+            cs = CharacterSelect(screen, menu_bg, fsm)
             f1,f2 = cs.run_select() # RETURN THE FIGHTERS 
         elif current_state == State.GAME:
-            gm = Game(screen, f1, f2)
+            gm = Game(screen, f1, f2, fsm)
             gm.run_game()
         
         # Add a condition to stop the main loop if needed

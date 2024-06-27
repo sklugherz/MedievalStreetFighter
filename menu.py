@@ -7,8 +7,10 @@ from helper import draw_bg, get_font
 
 
 class Menu:
-    def __init__(self, screen, bg):
+    def __init__(self, screen, bg, fsm):
         self.screen = screen
+        self.fsm = fsm
+        
         #IMAGES
         self.bg = bg
         self.play_rect = pygame.image.load("assets/Menu/PlayRect.png").convert_alpha()

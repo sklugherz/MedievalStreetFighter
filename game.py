@@ -5,10 +5,12 @@ from helper import draw_bg
 from pygame import mixer
 import menu
 class Game:
-	def __init__(self, fighter1, fighter2, screen):
+	def __init__(self, screen, fighter1, fighter2, fsm):
+		self.screen = screen
+		self.fsm = fsm
 		self.fighter_1 = fighter1 # RESEARCH INPLACE DICTIONAIRY/LIST TRAVERSAL
 		self.fighter_2 = fighter2
-		self.screen = screen
+		
 		self.clock = pygame.time.Clock()
 
 		#FONTS

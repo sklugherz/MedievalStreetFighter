@@ -8,10 +8,11 @@ from constants import MENU_ORANGE, WHITE
 import game
 
 class CharacterSelect:
-    def __init__(self, screen, bg):
+    def __init__(self, screen, bg, fsm):
         self.screen = screen
         self.bg = bg
-
+        self.fsm = fsm
+        
         #LOAD CHARACTER CROPS 
         self.elvenWarrior_crop = pygame.image.load("assets/FantasyWarrior/crop.png").convert_alpha()
         self.darkWizard_crop = pygame.image.load("assets/EvilWizard/crop.png").convert_alpha()
@@ -45,35 +46,25 @@ class CharacterSelect:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if elvenWarrior_button.checkForInput(mouse_pos):
                         #query database
-                        x = characters[0]
-                        ew_sheet = x["sheet"]
-                        ew_animations_steps = x["animationSteps"]
-                        ew_soundfx = x["soundfx"]
-                        ew_volume = x["volume"]
-                        ew_data = [x["size"], x["scale"], x["offset"]]
                         if p1_selected == False:
-                            f1 = Fighter(1, 200, 310, False, ew_data, ew_sheet, ew_animations_steps, ew_soundfx, ew_volume)
+                            f1 = "Elven Warrior"
                             p1_selected = True
                             elvenWarrior_button.text_input = "P1"
+                            button.update(self.screen)
                         else:
-                            f2 = Fighter(2, 700, 310, True, ew_data, ew_sheet, ew_animations_steps, ew_soundfx, ew_volume)     
-                            gm = game.Game(f1, f2, self.screen)
-                            gm.run_game()
+                            f2 = "Elven Warrior"
+                            # EVENT
+                            # CHANGE GAME STATE
 
                     if darkWizard_button.checkForInput(mouse_pos):
-                        x = characters[1]
-                        dw_sheet = x["sheet"]
-                        dw_animations_steps = x["animationSteps"]
-                        dw_soundfx = x["soundfx"]
-                        dw_volume = x["volume"]
-                        dw_data = [x["size"], x["scale"], x["offset"]]
                         if p1_selected == False:
-                            f1 = Fighter(1, 200, 310, False, dw_data, dw_sheet, dw_animations_steps, dw_soundfx, dw_volume)
+                            f1 = "Dark Wizard"
                             p1_selected = True
                             darkWizard_button.text_input = "P1"
+                            button.update(self.screen)
                         else:
-                            f2 = Fighter(2, 700, 310, True, dw_data, dw_sheet, dw_animations_steps, dw_soundfx, dw_volume)
-                            gm = game.Game(f1, f2, self.screen)
-                            gm.run_game()
+                            f2 = "Dark Wizard"
+                            # EVENT
+                            # CHANGE GAME STATE
 
             pygame.display.update()	
