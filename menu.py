@@ -1,11 +1,10 @@
 import pygame
-# import characterselect
 import sys
 from button import Button
 from constants import MENU_ORANGE, MENU_WHITE, WHITE
 from helper import draw_bg, get_font
-
-
+from event import Event
+from fsm import FSM
 class Menu:
     def __init__(self, screen, bg, fsm):
         self.screen = screen
@@ -17,36 +16,32 @@ class Menu:
         self.options_rect = pygame.image.load("assets/Menu/OptionsRect.png").convert_alpha()
         self.quit_rect = pygame.image.load("assets/Menu/QuitRect.png").convert_alpha()
 
+        # STATIC TEXT
+        self.MENU_TEXT = get_font(100).render("MAIN MENU", True, MENU_ORANGE)
+        self.MENU_RECT = self.MENU_TEXT.get_rect(center=(self.screen.get_width() / 2, 100))
+
+        # BUTTONS
+        self.PLAY_BUTTON = Button(self.play_rect, pos=(self.screen.get_width() / 2, 250), 
+                            text_input="PLAY", font=get_font(75), base_color=MENU_WHITE, hovering_color=WHITE)
+        self.OPTIONS_BUTTON = Button(self.options_rect, pos=(self.screen.get_width() / 2, 400), 
+                            text_input="OPTIONS", font=get_font(75), base_color=MENU_WHITE, hovering_color=WHITE)
+        self.QUIT_BUTTON = Button(self.quit_rect, pos=(self.screen.get_width() / 2, 550), 
+                            text_input="QUIT", font=get_font(75), base_color=MENU_WHITE, hovering_color=WHITE)
 
     #FUNCTIONS
-    
-    # def select_characters(self):
-    #     cs = characterselect.CharacterSelect(self.screen, self.menu_bg)
-    #     cs.run_select()
-        
-
     def options(self):
         pass
 
     def main_menu(self):
         pygame.display.set_caption("Menu")
-        while True:
-            draw_bg(self.menu_bg, self.screen)
+        running = True
+        while running:
+            draw_bg(self.bg, self.screen)
             mouse_pos = pygame.mouse.get_pos()
 
-            MENU_TEXT = get_font(100).render("MAIN MENU", True, MENU_ORANGE)
-            MENU_RECT = MENU_TEXT.get_rect(center=(self.SCREEN_WIDTH / 2, 100))
+            self.screen.blit(self.MENU_TEXT, self.MENU_RECT)
 
-            PLAY_BUTTON = Button(self.play_rect, pos=(self.SCREEN_WIDTH / 2, 250), 
-                                text_input="PLAY", font=get_font(75), base_color=MENU_WHITE, hovering_color=WHITE)
-            OPTIONS_BUTTON = Button(self.options_rect, pos=(self.SCREEN_WIDTH / 2, 400), 
-                                text_input="OPTIONS", font=get_font(75), base_color=MENU_WHITE, hovering_color=WHITE)
-            QUIT_BUTTON = Button(self.quit_rect, pos=(self.SCREEN_WIDTH / 2, 550), 
-                                text_input="QUIT", font=get_font(75), base_color=MENU_WHITE, hovering_color=WHITE)
-
-            self.screen.blit(MENU_TEXT, MENU_RECT)
-
-            for button in [PLAY_BUTTON, OPTIONS_BUTTON, QUIT_BUTTON]:
+            for button in [self.PLAY_BUTTON, self.OPTIONS_BUTTON, self.QUIT_BUTTON]:
                 button.changeColor(mouse_pos)
                 button.update(self.screen)
 
@@ -55,11 +50,15 @@ class Menu:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    if PLAY_BUTTON.checkForInput(mouse_pos):
-                        self.select_characters()
-                    if OPTIONS_BUTTON.checkForInput(mouse_pos):
-                        self.options()
-                    if QUIT_BUTTON.checkForInput(mouse_pos):
+                    if self.PLAY_BUTTON.checkForInput(mouse_pos):
+                        # EVENT
+                        # CHANGE STATE
+                        self.fsm.transition(Event.START_CHARACTER_SELECT)
+                        running = False
+                    if self.OPTIONS_BUTTON.checkForInput(mouse_pos):
+                        # TODO
+                        self.options() 
+                    if self.QUIT_BUTTON.checkForInput(mouse_pos):
                         pygame.quit()
                         sys.exit()
 

@@ -4,36 +4,11 @@ from game import Game
 from menu import Menu
 from characterselect import CharacterSelect
 
-class State:
-    MENU = 'Menu'
-    CHARACTER_SELECT = 'CharacterSelect'
-    GAME = 'Game'
+from state import State
+from fsm import FSM
 
-class Event:
-    START_CHARACTER_SELECT = 'StartCharacterSelect'
-    START_GAME = 'StartGame'
-    END_GAME = 'EndGame'
-
-class FSM:
-    def __init__(self):
-        self.state = State.MENU
-
-    def transition(self, event):
-        if self.state == State.MENU:
-            if event == Event.START_CHARACTER_SELECT:
-                self.state = State.CHARACTER_SELECT
-        elif self.state == State.CHARACTER_SELECT:
-            if event == Event.START_GAME:
-                self.state = State.GAME
-        elif self.state == State.GAME:
-            if event == Event.END_GAME:
-                self.state = State.MENU
-
-    def get_state(self):
-        return self.state
     
 def main():
-    #initialize screen to pass reference into each loop
     pygame.init()
     SCREEN_WIDTH = 1000
     SCREEN_HEIGHT = 600

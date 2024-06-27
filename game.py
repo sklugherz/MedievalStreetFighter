@@ -3,7 +3,8 @@ import sys
 from constants import RED,WHITE,YELLOW
 from helper import draw_bg
 from pygame import mixer
-import menu
+from event import Event
+
 class Game:
 	def __init__(self, screen, fighter1, fighter2, fsm):
 		self.screen = screen
@@ -35,9 +36,8 @@ class Game:
 		mixer.init()
 		pygame.mixer.music.load("assets/Audio/music.mp3")
 		pygame.mixer.music.set_volume(0.5)
-		
 	
-
+	# FUNCTIONS
 
 	def draw_health_bar(self, health, x, y):
 		ratio = health / 100
@@ -50,9 +50,10 @@ class Game:
 		self.screen.blit(img, (x, y))
 
 	def run_game(self):
-		
+		pygame.display.set_caption("FIGHT!")
 		pygame.mixer.music.play(-1, 0.0, 5000)
-		while True:
+		running = True
+		while running:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
 					pygame.quit()
@@ -104,19 +105,12 @@ class Game:
 				if (pygame.time.get_ticks() - self.round_over_time) > self.ROUND_OVER_CD:
 					if self.game_over == True:
 						# TODO
-						mn = menu.Menu()
-						mn.main_menu() #potentially changes call method if menu becomes self contained class
+						self.fsm.transition(Event.END_GAME) #potentially changes call method if menu becomes self contained class
 					else:
 						self.round_over = False
 						self.intro_count = 3
-						self.fighter_1.reset_health()
-						self.fighter_2.reset_health()
-						"""
-						TODO
-						SET X AND Y FOR EACHFIGHTER TO ORIGINAL POS
-						GET DATA FROM NEW SELECTCHARACTER CLASS
-						
-						"""
+						# TODO
+						#Reinitialize fighters
 
 			pygame.display.flip()
 			self.clock.tick(60)
