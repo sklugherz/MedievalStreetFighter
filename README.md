@@ -40,10 +40,12 @@ A simple medieval themed, arcade-style fighing game.
 
 - Load fighter data
   - Need to rework how characters are stored
+  - list of dictionairs does not suffice, custom data structure needed.
 
 ##### BackLogged
 
 - fix character select screen layout
   - guess and check different values, resize character crops to be bigger
+  - figure out why P1 text does not cover image
 - Add more characters to the database
   - adds data to list of dictionairies, add asset folders, maybe encompass fighter assets into their own folder, add to character select screen, adjust character select game loop to acount for these new characters.
