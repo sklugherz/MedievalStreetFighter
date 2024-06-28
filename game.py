@@ -1,13 +1,22 @@
 import pygame
 import sys
 from constants import RED,WHITE,YELLOW
-
+from helper import draw_bg
+from pygame import mixer
+from event import Event
+from characters import characters
+from fighter import Fighter
 
 class Game:
-	def __init__(self, fighter1, fighter2, screen):
-		self.fighter_1 = fighter1
-		self.fighter_2 = fighter2
+	def __init__(self, screen, fighter1, fighter2, fsm):
 		self.screen = screen
+		self.fsm = fsm
+		self.f1_name = fighter1
+		self.f2_name = fighter2
+		self.fighter_1 = None
+		self.fighter_2 = None
+		self.load_fighter_data(fighter1, fighter2)
+		
 		self.clock = pygame.time.Clock()
 
 		#FONTS
@@ -28,6 +37,20 @@ class Game:
 		self.game_over = False
 		self.ROUND_OVER_CD = 2000
 
+		#AUDIO
+		mixer.init()
+		pygame.mixer.music.load("assets/Audio/music.mp3")
+		pygame.mixer.music.set_volume(0.5)
+	
+	# FUNCTIONS
+
+	def load_fighter_data(self, f1_name, f2_name):
+		for x in characters:
+			if x["name"] == f1_name:
+				#player, x, y, flip, data, sprite_sheet, animations_steps, sound_fx, volume)
+				self.fighter_1 = Fighter(1, 200, 310, False, [x["size"], x["scale"], x["offset"]], x["sheet"], x["animation_steps"], x["soundfx"], x["volume"])
+			if x["name"] == f2_name:
+				self.fighter_2 = Fighter(2, 700, 310, True, [x["size"], x["scale"], x["offset"]], x["sheet"], x["animation_steps"], x["soundfx"], x["volume"])
 
 	def draw_health_bar(self, health, x, y):
 		ratio = health / 100
@@ -40,16 +63,18 @@ class Game:
 		self.screen.blit(img, (x, y))
 
 	def run_game(self):
-		from menu import draw_bg
-		from menu import main_menu
-		while True:
+		pygame.display.set_caption("FIGHT!")
+		self.load_fighter_data(self.f1_name, self.f2_name)
+		pygame.mixer.music.play(-1, 0.0, 5000)
+		running = True
+		while running:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
 					pygame.quit()
 					sys.exit()
 					#maybe give control back to main menu before total exit
 			#drawBG
-			draw_bg(self.game_bg)
+			draw_bg(self.game_bg, self.screen)
 			self.draw_health_bar(self.fighter_1.health, 20, 20)
 			self.draw_health_bar(self.fighter_2.health, 580, 20)
 			#draw score
@@ -94,18 +119,11 @@ class Game:
 				if (pygame.time.get_ticks() - self.round_over_time) > self.ROUND_OVER_CD:
 					if self.game_over == True:
 						# TODO
-						main_menu() #potentially changes call method if menu becomes self contained class
+						self.fsm.transition(Event.END_GAME) #potentially changes call method if menu becomes self contained class
 					else:
+						self.load_fighter_data(self.f1_name, self.f2_name)
 						self.round_over = False
 						self.intro_count = 3
-						self.fighter_1.reset_health()
-						self.fighter_2.reset_health()
-						"""
-						TODO
-						SET X AND Y FOR EACHFIGHTER TO ORIGINAL POS
-						GET DATA FROM NEW SELECTCHARACTER CLASS
-						
-						"""
 
 			pygame.display.flip()
 			self.clock.tick(60)
