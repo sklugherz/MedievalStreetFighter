@@ -38,13 +38,10 @@ A simple medieval themed, arcade-style fighing game.
 
 ##### High Prio
 
-- Refactor fighter creation responsiblity from characterselect to game
-  - This will accomplish returning fighters to their start positions, reduce the bloat of multifaceted character creation in characterselect, allow for cleaner code within the finite state machine main driver.
- 
-- Refactor circular game loop calls to change events.
-  - This should finally remove the circular dependency issues.
+- Load fighter data
+  - Need to rework how characters are stored
 
-##### Low Prio
+##### BackLogged
 
 - fix character select screen layout
   - guess and check different values, resize character crops to be bigger
