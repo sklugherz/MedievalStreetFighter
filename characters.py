@@ -21,3 +21,8 @@ characters = [
         "sheet": "assets/EvilWizard/wizard.png"
     }
 ]
+
+
+class Character:
+    def __init__(self):
+        self.name, 

@@ -13,7 +13,8 @@ class Game:
 		self.fsm = fsm
 		self.f1_name = fighter1
 		self.f2_name = fighter2
-		self.fighter_1, self.fighter_2
+		self.fighter_1 = None
+		self.fighter_2 = None
 		self.load_fighter_data(fighter1, fighter2)
 		
 		self.clock = pygame.time.Clock()
