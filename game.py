@@ -48,9 +48,9 @@ class Game:
 		for x in characters:
 			if x.name == f1_name:
 				#player, x, y, flip, data, sprite_sheet, animations_steps, sound_fx, volume)
-				self.fighter_1 = Fighter(1, 200, 310, False, x.data, x.sheet, x.animation_steps, x.soundfx, x.volume)
+				self.fighter_1 = Fighter(1, 200, 310, False, x["data"], x["sheet"], x["animation_steps"], x["soundfx"], x["volume"])
 			if x.name == f2_name:
-				self.fighter_2 = Fighter(2, 700, 310, True, x.data, x.sheet, x.animation_steps, x.soundfx, x.volume)
+				self.fighter_2 = Fighter(2, 700, 310, True, x["data"], x["sheet"], x["animation_steps"], x["soundfx"], x["volume"])
 
 	def draw_health_bar(self, health, x, y):
 		ratio = health / 100
