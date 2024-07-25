@@ -27,7 +27,7 @@ class Game:
 		self.victory_icon = pygame.image.load("assets/Icons/victory.png").convert_alpha()
 		
 		#IMAGES
-		self.game_bg = pygame.image.load("assets/Background/background.jpg").convert_alpha()
+		self.game_bg = pygame.image.load("assets/Background/background.png").convert_alpha()
 
 		#GAME VARIABLES
 		self.intro_count = 3
