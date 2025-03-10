@@ -38,9 +38,6 @@ A simple medieval themed, arcade-style fighing game.
 
 ##### High Prio
 
-- fix bug from assets loading error
-  - reference local with gh
-
 ##### plans
 
 - fix character select screen layout
