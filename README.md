@@ -34,27 +34,27 @@ A simple medieval themed, arcade-style fighing game.
 - Map/Background Selection
 - Asset Credits/Credit Location
 - more characters
-- Dynamic Character Selection screen
+
 
 ### Current Workspace:
 
-- Code Refactor
-  - need to sort file structure
-
+- Dynamic Character Selection screen
 
 ##### High Prio
 
 ##### Current
 
 - fix character select screen layout
-  - guess and check different values, resize character crops to be bigger
-  - figure out why P1 text does not cover image
+  - create new crops of characters for char select
+  - guess and check different placement values
+  - figure out why P1 text does not cover the selected image
+    - maybe its not explicitly being set to the char crop's position
+
+##### BackLogged
 
 - Load fighter data
   - Need to rework how characters are stored
   - list of dictionairs does not suffice, custom data structure needed.
-
-##### BackLogged
 
 - Add more characters to the database
   - adds data to list of dictionairies, add asset folders, maybe encompass fighter assets into their own folder, add to character select screen, adjust character select game loop to acount for these new characters.
