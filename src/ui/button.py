@@ -1,7 +1,10 @@
 class Button:
 	"""
+		Base code from
         Author: baraltech
 		Source: https://github.com/baraltech/Menu-System-PyGame
+
+		Modified my Stephen Klugherz
 	"""
 	def __init__(self, image, pos, text_input, font, base_color, hovering_color):
 		self.image = image

@@ -3,9 +3,9 @@ import sys
 from constants.colors import RED,WHITE,YELLOW
 from constants.event import Event
 from constants.characters import characters
-from helper import draw_bg
+from core.helper import draw_bg
 from pygame import mixer
-from fighter import Fighter
+from core.fighter import Fighter
 
 class Game:
 	def __init__(self, screen, fighter1, fighter2, fsm):
