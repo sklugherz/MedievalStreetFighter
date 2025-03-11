@@ -1,5 +1,5 @@
-from src.constants.state import State
-from src.constants.event import Event
+from constants.state import State
+from constants.event import Event
 
 class FSM:
     def __init__(self):

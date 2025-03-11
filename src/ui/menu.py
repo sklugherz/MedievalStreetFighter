@@ -1,10 +1,9 @@
 import pygame
 import sys
-from src.ui.button import Button
-from src.constants.colors import MENU_ORANGE, MENU_WHITE, WHITE
-from src.core.helper import draw_bg, get_font
-from src.constants.event import Event
-from src.core.fsm import FSM
+from ui.button import Button
+from constants.colors import MENU_ORANGE, MENU_WHITE, WHITE
+from core.helper import draw_bg, get_font
+from constants.event import Event
 class Menu:
     def __init__(self, screen, bg, fsm):
         self.screen = screen
