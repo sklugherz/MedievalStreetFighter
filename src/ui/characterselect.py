@@ -12,8 +12,8 @@ class CharacterSelect:
         self.fsm = fsm
 
         # LOAD CHARACTER CROPS 
-        self.elvenWarrior_crop = pygame.image.load("assets/FantasyWarrior/crop.png").convert_alpha()
-        self.darkWizard_crop = pygame.image.load("assets/EvilWizard/crop.png").convert_alpha()
+        self.elvenWarrior_crop = pygame.image.load("../assets/FantasyWarrior/crop.png").convert_alpha()
+        self.darkWizard_crop = pygame.image.load("../assets/EvilWizard/crop.png").convert_alpha()
 
         # FIGHTER CARDS
         ### CAN PROBABLY AUTOMATE LOADING/BUTTON CREATION

@@ -5,4 +5,4 @@ def draw_bg(bg, screen):
     screen.blit(scaled_bg, (0, 0))
 
 def get_font(size):
-    return pygame.font.Font("assets/Fonts/8bit.ttf", size)
+    return pygame.font.Font("../assets/Fonts/8bit.ttf", size)

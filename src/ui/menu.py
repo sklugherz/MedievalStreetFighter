@@ -11,9 +11,9 @@ class Menu:
         
         #IMAGES
         self.bg = bg
-        self.play_rect = pygame.image.load("assets/Menu/PlayRect.png").convert_alpha()
-        self.options_rect = pygame.image.load("assets/Menu/OptionsRect.png").convert_alpha()
-        self.quit_rect = pygame.image.load("assets/Menu/QuitRect.png").convert_alpha()
+        self.play_rect = pygame.image.load("../assets/Menu/PlayRect.png").convert_alpha()
+        self.options_rect = pygame.image.load("../assets/Menu/OptionsRect.png").convert_alpha()
+        self.quit_rect = pygame.image.load("../assets/Menu/QuitRect.png").convert_alpha()
 
         # STATIC TEXT
         self.MENU_TEXT = get_font(100).render("MAIN MENU", True, MENU_ORANGE)

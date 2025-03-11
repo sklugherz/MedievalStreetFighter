@@ -5,9 +5,9 @@ characters = [
         "size": 162, #pixels
         "scale": 4,
         "offset": [72, 56],
-        "soundfx": "assets/Audio/sword.wav",
+        "soundfx": "../assets/Audio/sword.wav",
         "volume": 0.5,
-        "sheet": "assets/FantasyWarrior/warrior.png"
+        "sheet": "../assets/FantasyWarrior/warrior.png"
         
     },
     {
@@ -16,8 +16,8 @@ characters = [
         "size": 250,
         "scale": 3,
         "offset": [112, 107],
-        "soundfx": "assets/Audio/magic.wav",
+        "soundfx": "../assets/Audio/magic.wav",
         "volume": 0.75,
-        "sheet": "assets/EvilWizard/wizard.png"
+        "sheet": "../assets/EvilWizard/wizard.png"
     }
 ]
