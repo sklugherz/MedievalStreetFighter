@@ -1,9 +1,9 @@
 import pygame
 import sys
-from button import Button
-from helper import draw_bg, get_font
-from constants import MENU_ORANGE, WHITE
-from event import Event
+from src.ui.button import Button
+from src.core.helper import draw_bg, get_font
+from src.constants.colors import MENU_ORANGE, WHITE
+from src.constants.event import Event
 
 class CharacterSelect:
     def __init__(self, screen, bg, fsm):

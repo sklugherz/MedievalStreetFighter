@@ -1,11 +1,11 @@
 import pygame
 import sys
-from constants import RED,WHITE,YELLOW
-from helper import draw_bg
+from src.constants.colors import RED,WHITE,YELLOW
+from src.core.helper import draw_bg
 from pygame import mixer
-from event import Event
-from characters import characters
-from fighter import Fighter
+from src.constants.event import Event
+from src.constants.characters import characters
+from src.core.fighter import Fighter
 
 class Game:
 	def __init__(self, screen, fighter1, fighter2, fsm):

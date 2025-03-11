@@ -1,11 +1,11 @@
 import pygame
 
-from game import Game
-from menu import Menu
-from characterselect import CharacterSelect
+from src.core.game import Game
+from src.ui.menu import Menu
+from src.ui.characterselect import CharacterSelect
 
-from state import State
-from fsm import FSM
+from src.constants.state import State
+from src.core.fsm import FSM
 
     
 def main():
