@@ -1,6 +1,6 @@
 import pygame
 import sys
-from ui.button import Button
+from button import Button
 from constants.colors import MENU_ORANGE, MENU_WHITE, WHITE
 from core.helper import draw_bg, get_font
 from constants.event import Event
