@@ -25,7 +25,7 @@ A simple medieval themed, arcade-style fighing game.
 - In-Game UI
 - Character Movement & Attacks
 - Starting Menu
-- Character Selection
+
 
 ### What I'm Planning on Implementing:
 
@@ -33,12 +33,18 @@ A simple medieval themed, arcade-style fighing game.
 - Basic AI for SinglePlayer
 - Map/Background Selection
 - Asset Credits/Credit Location
+- more characters
+- Dynamic Character Selection screen
 
 ### Current Workspace:
 
+- Code Refactor
+  - need to sort file structure
+
+
 ##### High Prio
 
-##### plans
+##### Current
 
 - fix character select screen layout
   - guess and check different values, resize character crops to be bigger
