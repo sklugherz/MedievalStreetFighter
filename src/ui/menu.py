@@ -1,10 +1,9 @@
 import pygame
 import sys
-from button import Button
-from constants import MENU_ORANGE, MENU_WHITE, WHITE
-from helper import draw_bg, get_font
-from event import Event
-from fsm import FSM
+from ui.button import Button
+from constants.colors import MENU_ORANGE, MENU_WHITE, WHITE
+from core.helper import draw_bg, get_font
+from constants.event import Event
 class Menu:
     def __init__(self, screen, bg, fsm):
         self.screen = screen
@@ -12,9 +11,9 @@ class Menu:
         
         #IMAGES
         self.bg = bg
-        self.play_rect = pygame.image.load("assets/Menu/PlayRect.png").convert_alpha()
-        self.options_rect = pygame.image.load("assets/Menu/OptionsRect.png").convert_alpha()
-        self.quit_rect = pygame.image.load("assets/Menu/QuitRect.png").convert_alpha()
+        self.play_rect = pygame.image.load("../assets/Menu/PlayRect.png").convert_alpha()
+        self.options_rect = pygame.image.load("../assets/Menu/OptionsRect.png").convert_alpha()
+        self.quit_rect = pygame.image.load("../assets/Menu/QuitRect.png").convert_alpha()
 
         # STATIC TEXT
         self.MENU_TEXT = get_font(100).render("MAIN MENU", True, MENU_ORANGE)

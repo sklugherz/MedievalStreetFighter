@@ -1,9 +1,9 @@
 import pygame
 import sys
-from button import Button
-from helper import draw_bg, get_font
-from constants import MENU_ORANGE, WHITE
-from event import Event
+from ui.button import Button
+from core.helper import draw_bg, get_font
+from constants.colors import MENU_ORANGE, WHITE
+from constants.event import Event
 
 class CharacterSelect:
     def __init__(self, screen, bg, fsm):
@@ -12,8 +12,8 @@ class CharacterSelect:
         self.fsm = fsm
 
         # LOAD CHARACTER CROPS 
-        self.elvenWarrior_crop = pygame.image.load("assets/FantasyWarrior/crop.png").convert_alpha()
-        self.darkWizard_crop = pygame.image.load("assets/EvilWizard/crop.png").convert_alpha()
+        self.elvenWarrior_crop = pygame.image.load("../assets/FantasyWarrior/crop.png").convert_alpha()
+        self.darkWizard_crop = pygame.image.load("../assets/EvilWizard/crop.png").convert_alpha()
 
         # FIGHTER CARDS
         ### CAN PROBABLY AUTOMATE LOADING/BUTTON CREATION

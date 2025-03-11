@@ -1,11 +1,11 @@
 import pygame
 
-from game import Game
-from menu import Menu
-from characterselect import CharacterSelect
+from core.game import Game
+from ui.menu import Menu
+from ui.characterselect import CharacterSelect
 
-from state import State
-from fsm import FSM
+from constants.state import State
+from core.fsm import FSM
 
     
 def main():
@@ -13,7 +13,7 @@ def main():
     SCREEN_WIDTH = 1000
     SCREEN_HEIGHT = 600
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
-    menu_bg = pygame.image.load("assets/Background/menu.png").convert_alpha()
+    menu_bg = pygame.image.load("../assets/Background/menu.png").convert_alpha()
 
     fsm = FSM()
 

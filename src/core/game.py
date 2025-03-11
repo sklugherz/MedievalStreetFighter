@@ -1,11 +1,11 @@
 import pygame
 import sys
-from constants import RED,WHITE,YELLOW
-from helper import draw_bg
+from constants.colors import RED,WHITE,YELLOW
+from core.helper import draw_bg
 from pygame import mixer
-from event import Event
-from characters import characters
-from fighter import Fighter
+from constants.event import Event
+from constants.characters import characters
+from core.fighter import Fighter
 
 class Game:
 	def __init__(self, screen, fighter1, fighter2, fsm):
@@ -20,14 +20,14 @@ class Game:
 		self.clock = pygame.time.Clock()
 
 		#FONTS
-		self.count_font = pygame.font.Font("assets/Fonts/turok.ttf", 80)
-		self.score_font = pygame.font.Font("assets/Fonts/turok.ttf", 80)
+		self.count_font = pygame.font.Font("../assets/Fonts/turok.ttf", 80)
+		self.score_font = pygame.font.Font("../assets/Fonts/turok.ttf", 80)
 
 		#ICONS
-		self.victory_icon = pygame.image.load("assets/Icons/victory.png").convert_alpha()
+		self.victory_icon = pygame.image.load("../assets/Icons/victory.png").convert_alpha()
 		
 		#IMAGES
-		self.game_bg = pygame.image.load("assets/Background/background.png").convert_alpha()
+		self.game_bg = pygame.image.load("../assets/Background/background.png").convert_alpha()
 
 		#GAME VARIABLES
 		self.intro_count = 3
@@ -39,7 +39,7 @@ class Game:
 
 		#AUDIO
 		mixer.init()
-		pygame.mixer.music.load("assets/Audio/music.mp3")
+		pygame.mixer.music.load("../assets/Audio/music.mp3")
 		pygame.mixer.music.set_volume(0.5)
 	
 	# FUNCTIONS
