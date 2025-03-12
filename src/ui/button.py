@@ -2,6 +2,8 @@
 """
 	Author: baraltech
 	Source: https://github.com/baraltech/Menu-System-PyGame
+
+	Modified by Stephen Klugherz
 """
 class Button:
 	def __init__(self, image, pos, text_input, font, base_color, hovering_color, offset=[0,0]):

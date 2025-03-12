@@ -21,8 +21,8 @@ class CharacterSelect:
         scaled_DW = pygame.transform.scale(darkWizard_crop, (15 * SCALE, 15 * SCALE))
 
         self.cards = []
-
-        self.elvenWarrior_button = Button(scaled_EW, (self.screen.get_width() / 2 - 35, 300), "", get_font(32), RED, YELLOW, [-15, 0])
+        
+        self.elvenWarrior_button = Button(scaled_EW, (self.screen.get_width() / 2 - 35, 300), "", get_font(32), RED, YELLOW, [-15, 0]) #offset is pre scaled width
         self.darkWizard_button = Button(scaled_DW, (self.screen.get_width() / 2 + 35, 300), "", get_font(32), RED, YELLOW, [-15, 0])
         
         self.cards.append(self.elvenWarrior_button)
