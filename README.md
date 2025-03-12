@@ -44,6 +44,10 @@ A simple medieval themed, arcade-style fighing game.
 
 ##### Current
 
+- make character placement reactive to screen size
+- make fight ui reactive to screen size
+- make screen resizeable
+
 ##### BackLogged
 
 - Load fighter data
