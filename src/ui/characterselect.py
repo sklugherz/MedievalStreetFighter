@@ -22,8 +22,8 @@ class CharacterSelect:
 
         self.cards = []
 
-        self.elvenWarrior_button = Button(scaled_EW, (self.screen.get_width() / 2 - 35, 300), "", get_font(32), RED, YELLOW)
-        self.darkWizard_button = Button(scaled_DW, (self.screen.get_width() / 2 + 35, 300), "", get_font(32), RED, YELLOW)
+        self.elvenWarrior_button = Button(scaled_EW, (self.screen.get_width() / 2 - 35, 300), "", get_font(32), RED, YELLOW, [-15, 0])
+        self.darkWizard_button = Button(scaled_DW, (self.screen.get_width() / 2 + 35, 300), "", get_font(32), RED, YELLOW, [-15, 0])
         
         self.cards.append(self.elvenWarrior_button)
         self.cards.append(self.darkWizard_button)
@@ -32,9 +32,6 @@ class CharacterSelect:
         self.SELECT_TEXT = get_font(50).render("SELECT FIGHTERS", True, MENU_ORANGE)
         self.SELECT_RECT = self.SELECT_TEXT.get_rect(center=(self.screen.get_width() / 2, 100))
 
-
-
-        
 
     def run_select(self):
         pygame.display.set_caption("Pre-Fight")

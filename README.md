@@ -38,15 +38,13 @@ A simple medieval themed, arcade-style fighing game.
 
 ### Current Workspace:
 
-- Dynamic Character Selection screen
+- Character Selection screen
 
 ##### High Prio
 
 ##### Current
 
 - fix character select screen layout
-  - create new crops of characters for char select
-  - guess and check different placement values
   - figure out why P1 text does not cover the selected image
     - maybe its not explicitly being set to the char crop's position
 
