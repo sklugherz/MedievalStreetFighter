@@ -25,10 +25,12 @@ A simple medieval themed, arcade-style fighing game.
 - In-Game UI
 - Character Movement & Attacks
 - Starting Menu
+- Character Selection
 
 
 ### What I'm Planning on Implementing:
 
+- Win Screen
 - SinglePlayer
 - Basic AI for SinglePlayer
 - Map/Background Selection
@@ -38,15 +40,9 @@ A simple medieval themed, arcade-style fighing game.
 
 ### Current Workspace:
 
-- Character Selection screen
-
 ##### High Prio
 
 ##### Current
-
-- fix character select screen layout
-  - figure out why P1 text does not cover the selected image
-    - maybe its not explicitly being set to the char crop's position
 
 ##### BackLogged
 
