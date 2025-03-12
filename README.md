@@ -1,6 +1,6 @@
 ## MedievalStreetFighter
 
-A simple medieval themed, arcade-style fighing game.
+A simple medieval themed, arcade-style fighting game.
 
 ### Controls
 

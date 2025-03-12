@@ -1,9 +1,7 @@
 import pygame
-
 from core.game import Game
 from ui.menu import Menu
 from ui.characterselect import CharacterSelect
-
 from constants.state import State
 from core.fsm import FSM
 
